@@ -11,7 +11,7 @@ export class CategoryComponent implements OnInit {
   
   categories : Category[]=[];
   currentCategory : Category; //={categoryId:0,categoryName:""} or strict add tsconfig
-
+  
   constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
     })
   }
   setCurrentCategory(category:Category){//yazmasanda olur type safe
-     this.currentCategory = category;
+      this.currentCategory = category;
   }
 
   getCurrentCategoryClass(category:Category){
@@ -36,4 +36,12 @@ export class CategoryComponent implements OnInit {
     }
   }
 
+  getAllCategoryClass(){
+    if(!this.currentCategory){
+      return "list-group-item active"
+    }
+    else{
+      return "list-group-item"
+    }
+  }
 }
